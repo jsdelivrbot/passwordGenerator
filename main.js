@@ -22,7 +22,8 @@ button_generate.onclick=function(){
     length=
         parseInt(input_length.value,10)
     textarea_result.value=randomPassword(length)
-    span_strength.textContent=Math.pow(charset.length,length).toExponential()
+    span_strength.textContent=
+        Math.pow(charset.length,length).toExponential()
 }
 function charsetOf(){
     var charset
