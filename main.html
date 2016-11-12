@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Random Password Generator</title>
+</head>
+<body>
+<div style="margin:0px auto;max-width:61%">
+    <p>
+        Length: <input id="input_length" value="6"><br>
+        <button id="button_generate">Generate</button>
+    <p>
+        Character Set: <code><span id="span_characterSet"></span></code><br>
+    <p>
+        Result:<br>
+        Strength: <span id="span_strength"></span><br>
+        <textarea id="textarea_result" style="width:100%;"></textarea>
+    <p>
+        A strong password include numbers, lowercases, uppercases, and symbols.
+    <p>
+        Facebook: Minimum length: 6.<br>
+        Google: Minimum length: 8.<br>
+    <p>
+        &copy; 2015 <a href="https://www.anliting.com/anliting">An-Li Ting</a>
+</div>
+<script>
+!function(){
+var textarea_result,button_generate,input_length,span_strength,span_characterSet
+var charset_numbers,charset_lowercases,charset_uppercases,charset_symbols
+var charset
+charset_numbers='0123456789'
+charset_lowercases='abcdefghijklmnopqrstuvwxyz'
+charset_uppercases='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+charset_symbols='!"#$%&\'()*+,-./:;<=>?@[\]^_`{|}~'
+textarea_result=
+    document.getElementById('textarea_result')
+button_generate=
+    document.getElementById('button_generate')
+input_length=
+    document.getElementById('input_length')
+span_strength=
+    document.getElementById('span_strength')
+span_characterSet=
+    document.getElementById('span_characterSet')
+charset=charsetOf()
+span_characterSet.textContent=charset
+button_generate.onclick=function(){
+    var length
+    length=
+        parseInt(input_length.value,10)
+    textarea_result.value=randomPassword(length)
+    span_strength.textContent=Math.pow(charset.length,length).toExponential()
+}
+function charsetOf(){
+    var charset
+    charset=''
+    charset+=charset_numbers
+    charset+=charset_lowercases
+    charset+=charset_uppercases
+    charset+=charset_symbols
+    return charset
+}
+function randomPassword(length){
+    var result
+    result=''
+    while(result.length<length)
+        result+=charset[
+            Math.floor(Math.random()*charset.length)
+        ]
+    return result
+}
+}()
+</script>
+</body>
+</html>
