@@ -1,4 +1,3 @@
-!function(){
 var textarea_result,button_generate,input_length,span_strength,span_characterSet
 var charset_numbers,charset_lowercases,charset_uppercases,charset_symbols
 var charset
@@ -43,4 +42,3 @@ function randomPassword(length){
         ]
     return result
 }
-}()
