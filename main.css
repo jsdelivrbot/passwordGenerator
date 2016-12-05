@@ -2,3 +2,9 @@ div.main{
     margin:0 auto;
     max-width:600px;
 }
+textarea.result{
+    width:100%;
+}
+span.characterSet{
+    font-family:monospace;
+}

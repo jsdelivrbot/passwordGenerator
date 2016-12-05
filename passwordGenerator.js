@@ -25,18 +25,21 @@ PasswordGenerator.prototype.randomPassword=function(length){
 }
 Object.defineProperty(PasswordGenerator.prototype,'view',{get(){
     let
-        div=document.createElement('div')
-    let
+        div=document.createElement('div'),
         textarea_result=
-            document.getElementById('textarea_result'),
+            document.createElement('textarea'),
         button_generate=
-            document.getElementById('button_generate'),
+            document.createElement('button'),
         input_length=
-            document.getElementById('input_length'),
+            document.createElement('input'),
         span_strength=
-            document.getElementById('span_strength'),
+            document.createElement('span'),
         span_characterSet=
-            document.getElementById('span_characterSet')
+            document.createElement('span')
+    button_generate.textContent='Generate'
+    input_length.value=6
+    textarea_result.className='result'
+    span_characterSet.className='characterSet'
     let charset=this.charset
     span_characterSet.textContent=charset
     button_generate.onclick=e=>{
@@ -53,15 +56,26 @@ Object.defineProperty(PasswordGenerator.prototype,'view',{get(){
     div.appendChild(resultP())
     return div
     function optionsP(){
-        let p=document.getElementById('optionsP')
+        let p=document.createElement('p')
+        p.appendChild(document.createTextNode('Length: '))
+        p.appendChild(input_length)
+        p.appendChild(document.createElement('br'))
+        p.appendChild(button_generate)
         return p
     }
     function characterSetP(){
-        let p=document.getElementById('characterSetP')
+        let p=document.createElement('p')
+        p.appendChild(document.createTextNode('Character Set: '))
+        p.appendChild(span_characterSet)
         return p
     }
     function resultP(){
-        let p=document.getElementById('resultP')
+        let p=document.createElement('p')
+        p.appendChild(document.createTextNode('Result:'))
+        p.appendChild(document.createElement('br'))
+        p.appendChild(document.createTextNode('Strength: '))
+        p.appendChild(span_strength)
+        p.appendChild(textarea_result)
         return p
     }
 }})
