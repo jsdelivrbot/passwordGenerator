@@ -1,14 +1,13 @@
 <!doctype html>
 <title>Password Generator</title>
-<div style="margin:0 auto;max-width:600px">
-<p>
+<p id=optionsP>
     Length: <input id=input_length value=6><br>
     <button id=button_generate>Generate</button>
-<p>
+<p id=characterSetP>
     Character Set: <code><span id=span_characterSet></span></code><br>
-<p>
+<p id=resultP>
     Result:<br>
     Strength: <span id=span_strength></span><br>
     <textarea id=textarea_result style=width:100%></textarea>
-</div>
+</p>
 <script src=https://cdn.rawgit.com/anliting/module/70627249698223eb67fb5c1c0a2cdeb87474e4b1/module.js data-main=main.js async></script>
